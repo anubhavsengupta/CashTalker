@@ -5,7 +5,7 @@ function DisplayExpense(props) {
     let currentList = props.data.filter(item => item.type === 'Expense');
     if (currentList.length === 0) {
         return (
-            <h1>
+            <h1 style={{textAlign: "center"}}>
                 No Expenses
             </h1>
         )

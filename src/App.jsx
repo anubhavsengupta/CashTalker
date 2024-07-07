@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { EntriesContext } from './Contexts/EntriesContext' 
 import './App.css'
 import IncomeDetails from './Components/CostDetails/IncomeDetails.jsx'
 import DisplayIncome from './Components/CostDetails/DisplayIncome.jsx';
 import DisplayExpense from './Components/CostDetails/DisplayExpense.jsx';
 import VoiceRecognizer from './Components/Dashboards/VoiceRecognizer.jsx';
+import DisplayList from './Components/Display/DisplayList.jsx';
 import { CohereClient } from "cohere-ai";
 
 function App() {
@@ -64,6 +66,9 @@ function App() {
         </VoiceRecognizer>
       </div>
       <h2 style={{textAlign: "center", color: "white"}}>Item List</h2>
+      <EntriesContext.Provider value={entries}>
+         <DisplayList></DisplayList>
+      </EntriesContext.Provider>
     </>
   )
 }

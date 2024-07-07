@@ -10,7 +10,7 @@ function DisplayIncome(props) {
     if (props.data.length === 0) {
         return (
             <>
-            <h1>No Data to display</h1>
+            <h1 style={{textAlign: "center"}}>No Data to display</h1>
             </>
         )
     }
