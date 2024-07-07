@@ -11,6 +11,7 @@ function VoiceRecognizer(props) {
         input.current = transcript;
     })
 
+
     const {
         transcript,
         listening,
@@ -24,9 +25,8 @@ function VoiceRecognizer(props) {
 
 
   return (
-    <div>
-        
-        <div class="VoiceRecognizer">
+    <div class="Recognizer">
+        <div>
             <p>Microphone: {listening ? 'on' : 'off'}</p>
             <button onClick={SpeechRecognition.startListening}>Start</button>
             <button onClick={SpeechRecognition.stopListening}>Stop</button>
@@ -34,6 +34,7 @@ function VoiceRecognizer(props) {
             <button onClick={() => {props.setInput(transcript); resetTranscript()}}>Submit</button>
             <p>{transcript}</p>
         </div>
+        <h3>{props.voiceText}</h3>
     </div>
   )
 }

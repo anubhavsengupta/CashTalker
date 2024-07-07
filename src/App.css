@@ -1,5 +1,9 @@
 body {
   background-image: radial-gradient(circle, #001b58 0%, #042f93 100%);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
 }
 
 
@@ -86,4 +90,23 @@ input, select {
 .Recognizer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Recognizer h3 {
+  background-color: black;
+  color: white;
+  width: 50%;
+  border: 1px solid lightblue;
+  padding: 1%;;
+}
+
+.Recognizer p {
+  text-align: center;
+}
+
+.formEntry {
+  margin-left: 40%;
+  margin-bottom: 30px;
 }

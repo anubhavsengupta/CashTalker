@@ -4,13 +4,36 @@ import IncomeDetails from './Components/CostDetails/IncomeDetails.jsx'
 import DisplayIncome from './Components/CostDetails/DisplayIncome.jsx';
 import DisplayExpense from './Components/CostDetails/DisplayExpense.jsx';
 import VoiceRecognizer from './Components/Dashboards/VoiceRecognizer.jsx';
-
+import { CohereClient } from "cohere-ai";
 
 function App() {
   const [entries, setEntries] = useState([]);
   const [voiceInput, setVoiceInput] = useState("");
-  
-  
+  const [suggestion, setSuggestion] = useState("");
+  useEffect(() => {
+    if (voiceInput.length === 0) {
+       return;
+    }
+        let userPrompt = voiceInput;
+        const cohere = new CohereClient({
+          token: import.meta.env.VITE_KEY,
+      });
+
+      (async () => {
+          const prediction = await cohere.generate({
+              prompt: userPrompt,
+              maxTokens: 1000,
+          });
+          
+          try {
+            setSuggestion(prediction);
+          } catch (error) {
+             console.error(error);
+          }
+      })();
+
+  }, [voiceInput]);
+
 
   function setInput(voiceInput) {
     setVoiceInput(voiceInput);
@@ -35,11 +58,12 @@ function App() {
         <DisplayExpense data={entries}></DisplayExpense>
         </section>
       </div>
-      <div class="Recognizer" s>
-        <VoiceRecognizer setInput={setInput}>
+      <div>
+        <VoiceRecognizer setInput={setInput} voiceText={suggestion === "" ? "" : suggestion.generations[0].text}>
 
         </VoiceRecognizer>
       </div>
+      <h2 style={{textAlign: "center", color: "white"}}>Item List</h2>
     </>
   )
 }
