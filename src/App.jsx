@@ -23,7 +23,6 @@ function App() {
         <DisplayExpense data={entries}></DisplayExpense>
         </section>
       </div>
-
     </>
   )
 }
