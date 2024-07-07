@@ -1,0 +1,84 @@
+body {
+  background-image: radial-gradient(circle, #001b58 0%, #042f93 100%);
+}
+
+
+.income-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.maincard {
+  background-color: black;
+  color: white;
+  width: 50%;
+  border: 1px solid lightblue;
+}
+
+.maincard h3 {
+  text-align: center;
+}
+
+h1.income {
+  text-align: center;
+}
+
+
+section.fields {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 50%; 
+  margin-bottom: 15px; 
+}
+
+
+.form-group {
+  flex: 1;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%; 
+  padding: 5px; 
+  box-sizing: border-box; 
+}
+
+.pieChart {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .form-row {
+      flex-direction: column; /* Stack items vertically */
+  }
+
+  .form-group {
+      margin-bottom: 15px; /* Space between stacked items */
+  }
+
+}
+
+.views {
+  display: flex;
+  justify-content: space-between;
+}
+
+.views section {
+  flex-grow: 1;
+  margin-top: 1em;
+}
