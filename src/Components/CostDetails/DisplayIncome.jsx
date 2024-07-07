@@ -1,6 +1,11 @@
 import React from 'react'
 import PieDashboard from '../Dashboards/PieDashboard'
+
+
+
 function DisplayIncome(props) {
+
+
 
     if (props.data.length === 0) {
         return (

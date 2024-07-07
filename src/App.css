@@ -82,3 +82,8 @@ input, select {
   flex-grow: 1;
   margin-top: 1em;
 }
+
+.Recognizer {
+  display: flex;
+  justify-content: center;
+}
