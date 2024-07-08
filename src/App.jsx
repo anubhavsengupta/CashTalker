@@ -45,10 +45,10 @@ function App() {
   function createEntry(type, amount, expense, date) {
     console.log("Creating entry: " + type + " " + amount + " " + expense + " " + date)
     setEntries([...entries, {id: ID, type: type, amount: amount, expense: expense, date: date}]);
-    setID(id + 1);
+    setID(ID + 1);
   }
 
-  function updateEntry(id, amount, expense) {
+  function updateEntry(id, expense, amount) {
     console.log("Updating Entry");
     const updatedEntries = entries.map(item => {
         if (item.id === id) {
@@ -58,6 +58,12 @@ function App() {
       });
     console.log(updatedEntries);
     setEntries(updatedEntries);
+  }
+
+  function deleteEntry(id) {
+    setEntries(currentEntries => {
+      return currentEntries.filter(item => item.id !== id);
+    })
   }
 
   
@@ -81,7 +87,7 @@ function App() {
       </div>
       <h2 style={{textAlign: "center", color: "white"}}>Item List</h2>
       <EntriesContext.Provider value={entries}>
-         <DisplayList update={updateEntry}></DisplayList>
+         <DisplayList update={updateEntry} delete={deleteEntry}></DisplayList>
       </EntriesContext.Provider>
     </>
   )

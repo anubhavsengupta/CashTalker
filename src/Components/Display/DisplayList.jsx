@@ -19,7 +19,7 @@ function DisplayList(props) {
             </thead>
             <tbody>
                 {entries.map((item, index) => (
-                    <Entry expense={item.expense} amount={item.amount} update={props.update} id ={item.id}/>
+                    <Entry expense={item.expense} amount={item.amount} update={props.update} id ={item.id} delete={props.delete}/>
                 ))}
             </tbody>
         </table>

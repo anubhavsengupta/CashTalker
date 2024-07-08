@@ -21,7 +21,7 @@ function Entry(props) {
             <td>${props.amount}</td>
             <td>
                 <button className="edit-button" onClick={() => setEdit(true)}>Edit</button>
-                <button className="delete-button">Delete</button>
+                <button className="delete-button" onClick={() => props.delete(props.id)}>Delete</button>
             </td>
         </tr>
     )

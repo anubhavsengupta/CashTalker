@@ -10,10 +10,12 @@ function PopupEdit(props) {
     function update(expense, amount) {
         console.log("Updating called form PopupEdit");
      
-        props.updatePopup(amount, expense);
+        props.updatePopup(expense, amount);
         
         props.closePopup();
     }
+
+
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
