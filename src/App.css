@@ -110,3 +110,48 @@ input, select {
   margin-left: 40%;
   margin-bottom: 30px;
 }
+
+
+/* TABLE STYLING */
+
+
+.item-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.item-table th, .item-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.item-table th {
+  background-color: #5c607b;
+}
+
+.item-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #4CAF50; 
+}
+
+.delete-button {
+  background-color: #f44336; 
+}
+
+.edit-button:hover, .delete-button:hover {
+  opacity: 0.8;
+}

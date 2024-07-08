@@ -12,6 +12,7 @@ function App() {
   const [entries, setEntries] = useState([]);
   const [voiceInput, setVoiceInput] = useState("");
   const [suggestion, setSuggestion] = useState("");
+  const [ID, setID] = useState(0);
   useEffect(() => {
     if (voiceInput.length === 0) {
        return;
@@ -43,7 +44,20 @@ function App() {
   }
   function createEntry(type, amount, expense, date) {
     console.log("Creating entry: " + type + " " + amount + " " + expense + " " + date)
-    setEntries([...entries, {type: type, amount: amount, expense: expense, date: date}]);
+    setEntries([...entries, {id: ID, type: type, amount: amount, expense: expense, date: date}]);
+    setID(id + 1);
+  }
+
+  function updateEntry(id, amount, expense) {
+    console.log("Updating Entry");
+    const updatedEntries = entries.map(item => {
+        if (item.id === id) {
+          return {...item, amount: amount, expense: expense};
+        }
+        return item;
+      });
+    console.log(updatedEntries);
+    setEntries(updatedEntries);
   }
 
   
@@ -67,7 +81,7 @@ function App() {
       </div>
       <h2 style={{textAlign: "center", color: "white"}}>Item List</h2>
       <EntriesContext.Provider value={entries}>
-         <DisplayList></DisplayList>
+         <DisplayList update={updateEntry}></DisplayList>
       </EntriesContext.Provider>
     </>
   )
